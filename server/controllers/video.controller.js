@@ -68,7 +68,7 @@ const uploadVideo = async (req,res) => {
         res.status(500).json({message : error.message});
     }
 }
-const updateVideo = async () => {
+const updateVideo = async (req,res) => {
     try{
         const {video_id} = req.params;
         await VideoModel.findByIdAndUpdate(video_id,req.body);
@@ -81,7 +81,7 @@ const updateVideo = async () => {
 
 }
 
-const deleteVideo = async () => {
+const deleteVideo = async (req,res) => {
     try{
         const {id} = req.params;
         await VideoModel.findByIdAndDelete(id);
